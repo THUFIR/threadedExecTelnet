@@ -1,0 +1,21 @@
+package foo;
+
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+public class FileWatcherThread extends Thread {
+
+    private final static Logger log = Logger.getLogger(FileWatcherThread.class.getName());
+    
+    @Override
+    public void run() {
+        Filez f = new Filez();
+        try {
+            f.read("/home/thufir/telnet/wuther.log");
+        } catch (IOException | URISyntaxException ex) {
+            Logger.getLogger(FileWatcherThread.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+}
