@@ -34,4 +34,11 @@ mainClassName = 'FileWatcherHandler.App'
 test {
     // Use TestNG for unit tests
     useTestNG()
+
+    application {
+        // Define the main class for the application.
+        mainClassName = 'foo.App'
+    }
+
+
 }
