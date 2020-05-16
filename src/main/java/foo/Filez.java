@@ -19,8 +19,6 @@ public class Filez {
     public void read(String s) throws IOException, URISyntaxException {
         URI fileURI = new URI(s);
         Stream<String> stream = Files.lines(Paths.get(fileURI.toString()));
-        log.info("read file?");
-        log.info(stream.toString());
-       stream.forEach(log.info(stream.toString()));
+        stream.forEach(System.out::println);
     }
 }
