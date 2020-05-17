@@ -10,8 +10,11 @@ public class Parser {
     public Parser() {
     }
 
-    public void foo(String s) {
-        log.info(s);
+    void foo(String line) {
+        log.info(line);
     }
+
+    
+    
 
 }
