@@ -20,7 +20,7 @@ public class StreamFile {
         List<String> list = br.lines().collect(Collectors.toList());
 
         Triggers t = new Triggers(); //use records
-        BotActions p = new BotActions(t.getTriggers());
+        RunTriggers p = new RunTriggers(t.getTriggers());
 
         p.everyLine(list);
 

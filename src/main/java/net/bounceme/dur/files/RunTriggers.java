@@ -8,17 +8,17 @@ import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class BotActions {
+public class RunTriggers {
 
-    private final static Logger log = Logger.getLogger(BotActions.class.getName());
+    private final static Logger log = Logger.getLogger(RunTriggers.class.getName());
 
     private Map<String, String> triggers = null;
     private boolean triggered = false;
 
-    private BotActions() {
+    private RunTriggers() {
     }
 
-    public BotActions(Map<String, String> triggers) {
+    public RunTriggers(Map<String, String> triggers) {
         this.triggers = triggers;
     }
 
@@ -34,6 +34,7 @@ public class BotActions {
         Iterator<Map.Entry<String, String>> triggerEntries = triggers.entrySet().iterator();
 
         while (triggerEntries.hasNext() && !triggered) {
+            line = line.trim();
             Map.Entry<String, String> entry = triggerEntries.next();
             pattern = Pattern.compile(entry.getKey());
             matcher = pattern.matcher(line);
