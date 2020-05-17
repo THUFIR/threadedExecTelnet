@@ -1,5 +1,7 @@
 package net.bounceme.dur.files;
 
+import java.io.IOException;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class FileWatcherThread extends Thread {
@@ -9,6 +11,10 @@ public class FileWatcherThread extends Thread {
     @Override
     public void run() {
         StreamFile f = new StreamFile();
-        f.read("/home/thufir/telnet/wuther.log");
+        try {
+            f.read("/home/thufir/telnet/wuther.log");
+        } catch (IOException ex) {
+            Logger.getLogger(FileWatcherThread.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

@@ -4,8 +4,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
@@ -17,19 +17,15 @@ public class StreamFile {
     public StreamFile() {
     }
 
-    public void read(String fileName)   {
-      //  URI foo = new URI(fileName);
-     //   Path bar = Paths.get(foo);
-        List<String> list = new ArrayList<>();
-        try (BufferedReader br = Files.newBufferedReader(Paths.get(fileName))) {
-            //br returns as stream and convert it into a List
-            list = br.lines().collect(Collectors.toList());
+    public void read(String fileName) throws IOException {
+        BufferedReader br = Files.newBufferedReader(Paths.get(fileName));
+        List<String> list = br.lines().collect(Collectors.toList());
 
-        } catch (IOException e) {
-            e.printStackTrace();
+        ListIterator listIterator = list.listIterator(list.size());
+        while (listIterator.hasPrevious()) {
+            p.foo(listIterator.previous().toString());
         }
 
-        list.forEach(System.out::println);
     }
 
     /*
