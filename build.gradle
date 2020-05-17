@@ -31,7 +31,7 @@ dependencies {
 application {
     // Define the main class for the application.
     //    mainClassName = 'FileWatcherHandler.App'
-    mainClassName = 'net.bounceme.dur.files.App'
+    mainClassName = 'net.bounceme.dur.mud.App'
 
 
 }
