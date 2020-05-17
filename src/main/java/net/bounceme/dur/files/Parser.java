@@ -21,29 +21,9 @@ public class Parser {
         triggerMap.put("Press Return to continue:", "press return");
     }
 
-    private void mainMenu(String line) {
-        log.fine(line);
-        Pattern pattern = Pattern.compile(".*MAIN.*");
-        Matcher matcher = pattern.matcher(line);
-        if (matcher.matches()) {
-            log.info(line);
-            log.info("main menu found");
-        }
-    }
-
-    private void pressReturn(String line) {
-        log.fine(line);
-        Pattern pattern = Pattern.compile("Press Return to continue:");
-        Matcher matcher = pattern.matcher(line);
-        if (matcher.matches()) {
-            log.info(line);
-            log.info("press return");
-        }
-    }
-
     private void pullTrigger(String line, Map.Entry<String, String> entry) {
         log.info(line);
-
+        log.info(entry.toString());
     }
 
     private void triggers(String line) {
@@ -65,16 +45,11 @@ public class Parser {
         }
     }
 
-    private void singleLine(String line) {
-        log.fine(line);
-        pressReturn(line);
-        mainMenu(line);
-    }
-
+    
     public void everyLine(List<String> list) {
         ListIterator listIterator = list.listIterator(list.size());
         while (listIterator.hasPrevious()) {
-            singleLine(listIterator.previous().toString());
+            triggers(listIterator.previous().toString());
         }
     }
 
