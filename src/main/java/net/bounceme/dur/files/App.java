@@ -1,4 +1,4 @@
-package foo;
+package net.bounceme.dur.files;
 
 import java.net.URI;
 import java.net.URISyntaxException;

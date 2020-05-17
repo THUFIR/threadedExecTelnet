@@ -1,4 +1,4 @@
-package foo;
+package net.bounceme.dur.files;
 
 import java.util.function.Consumer;
 import java.util.logging.Logger;

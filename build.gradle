@@ -37,7 +37,7 @@ test {
 
     application {
         // Define the main class for the application.
-        mainClassName = 'foo.App'
+        mainClassName = 'net.bounceme.dur.files.App'
     }
 
 
