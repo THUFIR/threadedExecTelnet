@@ -3,42 +3,40 @@
  *
  * This generated file contains a sample Java project to get you started.
  * For more details take a look at the Java Quickstart chapter in the Gradle
- * User Manual available at https://docs.gradle.org/5.2.1/userguide/tutorial_java_projects.html
+ * User Manual available at https://docs.gradle.org/6.4.1/userguide/tutorial_java_projects.html
  */
 
 plugins {
     // Apply the java plugin to add support for Java
     id 'java'
 
-    // Apply the application plugin to add support for building an application
+    // Apply the application plugin to add support for building a CLI application.
     id 'application'
 }
 
 repositories {
-    // Use jcenter for resolving your dependencies.
+    // Use jcenter for resolving dependencies.
     // You can declare any Maven/Ivy/file repository here.
     jcenter()
 }
 
 dependencies {
-    // This dependency is found on compile classpath of this component and consumers.
-    implementation 'com.google.guava:guava:27.0.1-jre'
+    // This dependency is used by the application.
+    implementation 'com.google.guava:guava:28.2-jre'
 
     // Use TestNG framework, also requires calling test.useTestNG() below
-    testImplementation 'org.testng:testng:6.14.3'
+    testImplementation 'org.testng:testng:7.1.1'
 }
 
-// Define the main class for the application
-mainClassName = 'FileWatcherHandler.App'
+application {
+    // Define the main class for the application.
+//    mainClassName = 'FileWatcherHandler.App'
+    mainClassName = 'net.bounceme.dur.files.App'
+
+
+}
 
 test {
     // Use TestNG for unit tests
     useTestNG()
-
-    application {
-        // Define the main class for the application.
-        mainClassName = 'net.bounceme.dur.files.App'
-    }
-
-
 }

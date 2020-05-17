@@ -12,7 +12,7 @@ public class FileWatcherThread extends Thread {
     public void run() {
         StreamFile f = new StreamFile();
         try {
-            f.read("/home/thufir/telnet/wuther.log");
+            f.read("/home/thufir/telnet/wunderground.log");
         } catch (IOException ex) {
             Logger.getLogger(FileWatcherThread.class.getName()).log(Level.SEVERE, null, ex);
         }

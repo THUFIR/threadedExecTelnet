@@ -12,7 +12,7 @@ public class Triggers {
 
     public Triggers() {
         triggers = new HashMap();
-        triggers.put(".*MAIN.*", "main menu found, press 1");
+        triggers.put("/^.*\\bMAIN MENU\\b.*$/m", "main menu found, press 1");
         triggers.put("Press Return to continue:", "press return");
     }
 
