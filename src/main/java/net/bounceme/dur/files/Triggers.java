@@ -12,8 +12,11 @@ public class Triggers {
 
     public Triggers() {
         triggers = new HashMap();
-        triggers.put("/^.*\\bMAIN MENU\\b.*$/m", "main menu found, press 1");
-        triggers.put("Press Return to continue:", "press return");
+        //   triggers.put("Press Return to continue:", "press return");
+        triggers.put("Press Return for menu:", "press return");
+        //    triggers.put("or enter 3 letter forecast city code--", "press enter?");
+        //   triggers.put("WEATHER UNDERGROUND MAIN MENU", "main menu found, press 1");
+        //   triggers.put("Press Return to continue:", "press return");
     }
 
     public Map<String, String> getTriggers() {
