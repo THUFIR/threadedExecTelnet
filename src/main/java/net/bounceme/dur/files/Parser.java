@@ -13,12 +13,12 @@ public class Parser {
 
     private final static Logger log = Logger.getLogger(Parser.class.getName());
 
-    private Map<String, String> triggerMap = null;
+    private Map<String, String> triggers = null;
 
     public Parser() {
-        triggerMap = new HashMap();
-        triggerMap.put(".*MAIN.*", "main menu found, press 1");
-        triggerMap.put("Press Return to continue:", "press return");
+        triggers = new HashMap();
+        triggers.put(".*MAIN.*", "main menu found, press 1");
+        triggers.put("Press Return to continue:", "press return");
     }
 
     private void pullTrigger(String line, Map.Entry<String, String> entry) {
@@ -30,14 +30,16 @@ public class Parser {
         Pattern pattern = null;
         Matcher matcher = null;
 
-        Iterator<Map.Entry<String, String>> entries = triggerMap.entrySet().iterator();
+        Iterator<Map.Entry<String, String>> triggerEntries = triggers.entrySet().iterator();
 
-        while (entries.hasNext()) {
-            Map.Entry<String, String> entry = entries.next();
+        boolean triggered = false;
+        while (triggerEntries.hasNext() && !triggered) {
+            Map.Entry<String, String> entry = triggerEntries.next();
             pattern = Pattern.compile(entry.getKey());
             matcher = pattern.matcher(line);
             if (matcher.matches()) {
                 pullTrigger(line, entry);
+                triggered = true;
             }
         }
     }
