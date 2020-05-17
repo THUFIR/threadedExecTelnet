@@ -17,7 +17,9 @@ public class StreamFile {
     public StreamFile() {
     }
 
-    public void read(String fileName) {
+    public void read(String fileName)   {
+      //  URI foo = new URI(fileName);
+     //   Path bar = Paths.get(foo);
         List<String> list = new ArrayList<>();
         try (BufferedReader br = Files.newBufferedReader(Paths.get(fileName))) {
             //br returns as stream and convert it into a List
