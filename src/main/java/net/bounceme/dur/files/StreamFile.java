@@ -1,16 +1,13 @@
 package net.bounceme.dur.files;
 
+import java.io.BufferedReader;
 import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.ListIterator;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class StreamFile {
 
@@ -20,6 +17,20 @@ public class StreamFile {
     public StreamFile() {
     }
 
+    public void read(String fileName) {
+        List<String> list = new ArrayList<>();
+        try (BufferedReader br = Files.newBufferedReader(Paths.get(fileName))) {
+            //br returns as stream and convert it into a List
+            list = br.lines().collect(Collectors.toList());
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        list.forEach(System.out::println);
+    }
+
+    /*
     public void read(String filePath) throws IOException, URISyntaxException {
 //        Stream<String> stream = Files.lines(Paths.get(new URI(filePath)));
         URI foo = new URI(filePath);
@@ -31,5 +42,5 @@ public class StreamFile {
             p.foo(listIterator.previous().toString());
         }
     }
-
+     */
 }

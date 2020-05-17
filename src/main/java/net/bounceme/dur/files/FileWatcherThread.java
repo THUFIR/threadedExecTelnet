@@ -1,8 +1,5 @@
 package net.bounceme.dur.files;
 
-import java.io.IOException;
-import java.net.URISyntaxException;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class FileWatcherThread extends Thread {
@@ -12,10 +9,6 @@ public class FileWatcherThread extends Thread {
     @Override
     public void run() {
         StreamFile f = new StreamFile();
-        try {
-            f.read("/home/thufir/telnet/wuther.log");
-        } catch (IOException | URISyntaxException ex) {
-            Logger.getLogger(FileWatcherThread.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        f.read("/home/thufir/telnet/wuther.log");
     }
 }
