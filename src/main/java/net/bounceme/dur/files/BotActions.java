@@ -13,6 +13,7 @@ public class BotActions {
     private final static Logger log = Logger.getLogger(BotActions.class.getName());
 
     private Map<String, String> triggers = null;
+    private boolean triggered = false;
 
     private BotActions() {
     }
@@ -32,7 +33,6 @@ public class BotActions {
 
         Iterator<Map.Entry<String, String>> triggerEntries = triggers.entrySet().iterator();
 
-        boolean triggered = false;
         while (triggerEntries.hasNext() && !triggered) {
             Map.Entry<String, String> entry = triggerEntries.next();
             pattern = Pattern.compile(entry.getKey());
@@ -46,7 +46,7 @@ public class BotActions {
 
     public void everyLine(List<String> list) {
         ListIterator listIterator = list.listIterator(list.size());
-        while (listIterator.hasPrevious()) {
+        while (listIterator.hasPrevious() && !triggered) {
             triggers(listIterator.previous().toString());
         }
     }
