@@ -30,7 +30,7 @@ dependencies {
 
 application {
     // Define the main class for the application.
-//    mainClassName = 'FileWatcherHandler.App'
+    //    mainClassName = 'FileWatcherHandler.App'
     mainClassName = 'net.bounceme.dur.files.App'
 
 
@@ -40,3 +40,20 @@ test {
     // Use TestNG for unit tests
     useTestNG()
 }
+
+
+
+tasks.withType(JavaExec) {
+    jvmArgs += '--enable-preview'
+}
+
+compileJava {
+    options.warnings = false
+    options.deprecation = false
+    options.compilerArgs += ["-Xdoclint:none", "-Xlint:none", "-nowarn"]
+    options.compilerArgs += ["-Xlint"]
+    options.compilerArgs += ["--enable-preview"]
+   // options.compilerArgs += ["-source 14"]
+    // options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation" 
+}
+
