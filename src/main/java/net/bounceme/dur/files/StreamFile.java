@@ -21,10 +21,9 @@ public class StreamFile {
         BufferedReader br = Files.newBufferedReader(Paths.get(fileName));
         List<String> list = br.lines().collect(Collectors.toList());
 
-        ListIterator listIterator = list.listIterator(list.size());
-        while (listIterator.hasPrevious()) {
-            p.foo(listIterator.previous().toString());
-        }
+        
+        p.everyLine(list);
+        
 
     }
 
