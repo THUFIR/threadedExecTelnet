@@ -1,6 +1,5 @@
 package net.bounceme.dur.files;
 
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
@@ -9,16 +8,17 @@ import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Parser {
+public class BotActions {
 
-    private final static Logger log = Logger.getLogger(Parser.class.getName());
+    private final static Logger log = Logger.getLogger(BotActions.class.getName());
 
     private Map<String, String> triggers = null;
 
-    public Parser() {
-        triggers = new HashMap();
-        triggers.put(".*MAIN.*", "main menu found, press 1");
-        triggers.put("Press Return to continue:", "press return");
+    private BotActions() {
+    }
+
+    public BotActions(Map<String, String> triggers) {
+        this.triggers = triggers;
     }
 
     private void pullTrigger(String line, Map.Entry<String, String> entry) {
