@@ -27,25 +27,21 @@ public class Parser {
     }
 
     private void triggers(String line) {
-        boolean match = false;
         Pattern pattern = null;
         Matcher matcher = null;
 
         Iterator<Map.Entry<String, String>> entries = triggerMap.entrySet().iterator();
 
-        while (!match) {
-            while (entries.hasNext()) {
-                Map.Entry<String, String> entry = entries.next();
-                pattern = Pattern.compile(entry.getKey());
-                matcher = pattern.matcher(line);
-                if (matcher.matches()) {
-                    pullTrigger(line, entry);
-                }
+        while (entries.hasNext()) {
+            Map.Entry<String, String> entry = entries.next();
+            pattern = Pattern.compile(entry.getKey());
+            matcher = pattern.matcher(line);
+            if (matcher.matches()) {
+                pullTrigger(line, entry);
             }
         }
     }
 
-    
     public void everyLine(List<String> list) {
         ListIterator listIterator = list.listIterator(list.size());
         while (listIterator.hasPrevious()) {
