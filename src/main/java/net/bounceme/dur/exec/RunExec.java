@@ -15,7 +15,12 @@ public class RunExec {
     public RunExec() {
     }
 
-    public void start(CommandEnum commandEnum) throws IOException {
+    public void foo(CommandEnum commandEnum) {
+        List<String> commandsList = new RunCommands(commandEnum).getCommands();
+
+    }
+
+    public void runProcessBuilder(CommandEnum commandEnum) throws IOException {
         List<String> commandsList = new RunCommands(commandEnum).getCommands();
         String[] commandsArray = commandsList.toArray(new String[0]);
         Process process = new ProcessBuilder(commandsList).start();
@@ -23,13 +28,9 @@ public class RunExec {
         String newLine = System.getProperty("line.separator");
         BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
         StringBuilder result = new StringBuilder();
-      //  boolean flag = false;
         for (String line; (line = reader.readLine()) != null;) {
-  //          result.append(flag ? newLine : "").append(line);
-    //        flag = true;
             System.out.println(line);
         }
-//        log.info(result.toString());
     }
 
     private void write(InputStream stdin) throws UnsupportedEncodingException, IOException {
