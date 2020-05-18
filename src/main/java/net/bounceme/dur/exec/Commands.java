@@ -53,10 +53,10 @@ public class Commands {
         q.add("-c");
         q.add("telnet");
         q.add("localhost");
-        q.add("23");
-        q.add("|");
-        q.add("tee");
-        q.add("out.log");
+      //  q.add("23");
+   //     q.add("|");
+   //     q.add("tee");
+    //    q.add("out.log");
     }
 
     private void gedit() {

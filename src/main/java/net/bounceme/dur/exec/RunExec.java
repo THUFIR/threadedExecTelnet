@@ -23,12 +23,13 @@ public class RunExec {
         String newLine = System.getProperty("line.separator");
         BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
         StringBuilder result = new StringBuilder();
-        boolean flag = false;
+      //  boolean flag = false;
         for (String line; (line = reader.readLine()) != null;) {
-            result.append(flag ? newLine : "").append(line);
-            flag = true;
+  //          result.append(flag ? newLine : "").append(line);
+    //        flag = true;
+            System.out.println(line);
         }
-        log.info(result.toString());
+//        log.info(result.toString());
     }
 
     private void write(InputStream stdin) throws UnsupportedEncodingException, IOException {
