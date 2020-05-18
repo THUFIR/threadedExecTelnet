@@ -13,11 +13,13 @@ public class CommandList {
     public CommandList() {
     }
 
-    public List<String> foo() {
+    public static String[] foo() {
         Queue<String> q = new LinkedList<>();
         q.add("telnet localhost");
+        q.add("localhost");
         List<String> list = new ArrayList<>(q);
-        return list;
+        String[] baz = list.toArray(new String[0]);
+        return baz;
     }
 
     private void bar() {

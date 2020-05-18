@@ -16,22 +16,13 @@ public class RunExec {
     }
 
     public void start() throws IOException {
-        String[] s = new String[6];
-        s[0] = "telnet";
-        s[1] = "rainmaker.wunderground.com";
-        s[2] = "3000";
-        s[3] = "|";
-        s[4] = "tee";
-        s[5] = "out.log";
-        for (String item : s) {
-            System.out.println(item);
-        }
-        Process process = Runtime.getRuntime().exec(s);
+        Process process = Runtime.getRuntime().exec(CommandList.foo());
         OutputStream stdin = process.getOutputStream();
         InputStream stderr = process.getErrorStream();
         InputStream stdout = process.getInputStream();
         read();
         write(stdout);
+        write(stderr);
     }
 
     private void parseLog() {
