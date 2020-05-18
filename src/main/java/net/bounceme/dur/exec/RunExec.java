@@ -5,10 +5,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
-import static java.lang.System.in;
 import java.util.List;
 import java.util.logging.Logger;
-import java.util.stream.Collectors;
 
 public class RunExec {
 
@@ -18,20 +16,10 @@ public class RunExec {
     }
 
     public void start() throws IOException {
-        List<String> commandsList = new RunCommands(CommandEnum.LS).getCommands();
+        List<String> commandsList = new RunCommands(CommandEnum.LOCAL_TELNET).getCommands();
         String[] commandsArray = commandsList.toArray(new String[0]);
-
-        //ProcessBuilder processBuilder = new ProcessBuilder();
-        //processBuilder.command(commandsList);
-        //    Runtime runtime = Runtime.getRuntime();
-        //   Process process = runtime.exec(commandsArray);
-        //processBuilder
-        
         Process process = new ProcessBuilder(commandsList).start();
-
-//        List<String> resufdlts = readOutput(process.getInputStream());
         InputStream inputStream = process.getInputStream();
-
         String newLine = System.getProperty("line.separator");
         BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
         StringBuilder result = new StringBuilder();
@@ -41,13 +29,6 @@ public class RunExec {
             flag = true;
         }
         log.info(result.toString());
-
-        //        OutputStream stdin = processBuilder.getOutputStream();
-        //      InputStream stderr = processBuilder.getErrorStream();
-        //    InputStream stdout = processBuilder.getInputStream();
-        //  read();
-        //    write(stdout);
-        //  write(stderr);
     }
 
     private void write(InputStream stdin) throws UnsupportedEncodingException, IOException {

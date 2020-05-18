@@ -11,7 +11,7 @@ public class Triggers {
     private Map<String, String> triggers = null;
 
     public Triggers() {
-        triggers = new HashMap();
+        triggers = new HashMap<String,String>();
         //   triggers.put("Press Return to continue:", "press return");
         triggers.put("Press Return for menu:", "press return");
         //    triggers.put("or enter 3 letter forecast city code--", "press enter?");

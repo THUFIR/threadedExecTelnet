@@ -49,6 +49,8 @@ public class Commands {
     }
 
     private void telnetLocalHost() {
+        q.add("bash");
+        q.add("-c");
         q.add("telnet");
         q.add("localhost");
         q.add("23");
