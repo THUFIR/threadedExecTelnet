@@ -9,13 +9,18 @@ import java.util.stream.Collectors;
 public class RunCommands {
 
     private final static Logger log = Logger.getLogger(RunCommands.class.getName());
+    private List<String> commands = null;
 
     private RunCommands() {
     }
 
     public RunCommands(CommandEnum commandEnum) {
         Queue<String> queue = new Commands(commandEnum).getQueue();
-        List<String> s = queue.stream().collect(Collectors.toCollection(ArrayList::new));
+        commands = queue.stream().collect(Collectors.toCollection(ArrayList::new));
+    }
+
+    public List<String> getCommands() {
+        return commands;
     }
 
 }

@@ -14,13 +14,16 @@ public class Commands {
 
     public Commands(CommandEnum commandType) {
         switch (commandType) {
+            case GNOME_TERMINAL:
+                telnetLocalHost();
+                break;
+            case LS:
+                ls();
+                break;
             case LOCAL_TELNET:
                 telnetLocalHost();
                 break;
             case WUNDERGROUND:
-                telnetLocalHost();
-                break;
-            case GNOME_TERMINAL:
                 telnetLocalHost();
                 break;
             case FOO:
@@ -30,6 +33,12 @@ public class Commands {
 
     public Queue<String> getQueue() {
         return q;
+    }
+
+    private void ls() {
+        q.add("bash");
+        q.add("-c");
+        q.add("ls /home/thufir/");
     }
 
     private void telnetLocalHost() {

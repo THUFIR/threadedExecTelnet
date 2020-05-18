@@ -6,6 +6,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
+import java.util.List;
 import java.util.logging.Logger;
 
 public class RunExec {
@@ -16,17 +17,33 @@ public class RunExec {
     }
 
     public void start() throws IOException {
-        RunCommands rc = new RunCommands(CommandEnum.LOCAL_TELNET);
+        List<String> commandsList = new RunCommands(CommandEnum.LOCAL_TELNET).getCommands();
 
+
+
+        ProcessBuilder processBuilder = new ProcessBuilder();
+        processBuilder.command(commandsList);
         
-        ProcessBuilder builder = new ProcessBuilder();
-        
-        builder.command(command);
         
         
-        OutputStream stdin = process.getOutputStream();
-        InputStream stderr = process.getErrorStream();
-        InputStream stdout = process.getInputStream();
+        
+        
+        
+            Runtime runtime = Runtime.getRuntime();
+            Process process = runtime.exec(cmd);
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        OutputStream stdin = processBuilder.getOutputStream();
+        InputStream stderr = processBuilder.getErrorStream();
+        InputStream stdout = processBuilder.getInputStream();
         read();
         write(stdout);
         write(stderr);
@@ -63,3 +80,25 @@ public class RunExec {
         read.start();
     }
 }
+
+
+/*
+
+
+            Runtime rt = Runtime.getRuntime();
+            System.out.println("Execing " + cmd[0] + " " + cmd[1] 
+                               + " " + cmd[2]);
+            Process proc = rt.exec(cmd);
+            // any error message?
+            StreamGobbler errorGobbler = new 
+                StreamGobbler(proc.getErrorStream(), "ERROR");            
+            
+            // any output?
+            StreamGobbler outputGobbler = new 
+                StreamGobbler(proc.getInputStream(), "OUTPUT");
+                
+            // kick them off
+            errorGobbler.start();
+            outputGobbler.start();
+
+*/
