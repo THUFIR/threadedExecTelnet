@@ -10,6 +10,6 @@ public class App {
     private final static Logger log = Logger.getLogger(App.class.getName());
 
     public static void main(String[] args) throws IOException {
-       new RunExec().foo(CommandEnum.LS);
+       new RunExec().exec(CommandEnum.JAVA);
     }
 }

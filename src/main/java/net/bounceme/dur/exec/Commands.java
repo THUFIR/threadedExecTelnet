@@ -40,7 +40,7 @@ public class Commands {
 
     private void java() {
         q.add("java");
-        q.add("-v");
+        q.add("-version");
     }
     private void ls() {
         q.add("bash");

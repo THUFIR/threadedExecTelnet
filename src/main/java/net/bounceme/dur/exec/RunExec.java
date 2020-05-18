@@ -15,7 +15,7 @@ public class RunExec {
     public RunExec() {
     }
 
-    public void foo(CommandEnum commandEnum) throws IOException {
+    public void exec(CommandEnum commandEnum) throws IOException {
         List<String> commandsList = new RunCommands(commandEnum).getCommands();
         String[] commandsArray = commandsList.toArray(new String[0]);
         Process process = Runtime.getRuntime().exec(commandsArray);
