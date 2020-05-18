@@ -23,3 +23,9 @@ public class Triggers {
         return triggers;
     }
 }
+
+
+//Press Return to continue:
+
+
+//   Press Return to continue, M to return to menu, X to exit: x
