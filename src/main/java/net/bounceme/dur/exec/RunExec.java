@@ -15,14 +15,14 @@ public class RunExec {
     public RunExec() {
     }
 
-    public void foo(CommandEnum commandEnum) {
+    public void foo(CommandEnum commandEnum) throws IOException {
         List<String> commandsList = new RunCommands(commandEnum).getCommands();
-
+        String[] commandsArray = commandsList.toArray(new String[0]);
+        Process P = Runtime.getRuntime().exec(commandsArray);
     }
 
     public void runProcessBuilder(CommandEnum commandEnum) throws IOException {
         List<String> commandsList = new RunCommands(commandEnum).getCommands();
-        String[] commandsArray = commandsList.toArray(new String[0]);
         Process process = new ProcessBuilder(commandsList).start();
         InputStream inputStream = process.getInputStream();
         String newLine = System.getProperty("line.separator");
