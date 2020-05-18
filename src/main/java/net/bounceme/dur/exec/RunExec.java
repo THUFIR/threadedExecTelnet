@@ -18,7 +18,22 @@ public class RunExec {
     public void foo(CommandEnum commandEnum) throws IOException {
         List<String> commandsList = new RunCommands(commandEnum).getCommands();
         String[] commandsArray = commandsList.toArray(new String[0]);
-        Process P = Runtime.getRuntime().exec(commandsArray);
+        Process process = Runtime.getRuntime().exec(commandsArray);
+
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(process.getErrorStream()));
+
+        for (String line; (line = bufferedReader.readLine()) != null;) {
+            System.out.println(line);
+        }
+
+    }
+
+    private void bar(InputStream inputStream) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+        StringBuilder result = new StringBuilder();
+        for (String line; (line = reader.readLine()) != null;) {
+            System.out.println(line);
+        }
     }
 
     public void runProcessBuilder(CommandEnum commandEnum) throws IOException {
