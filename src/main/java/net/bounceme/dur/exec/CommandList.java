@@ -13,10 +13,26 @@ public class CommandList {
     public CommandList() {
     }
 
-    public static String[] foo() {
+    public static String[] baz() {
         Queue<String> q = new LinkedList<>();
         q.add("telnet localhost");
         q.add("localhost");
+        q.add("23");
+        q.add("|");
+        q.add("tee");
+        q.add("out.log");
+        List<String> list = new ArrayList<>(q);
+        String[] baz = list.toArray(new String[0]);
+        return baz;
+    }
+
+
+    public static String[] foo() {
+        Queue<String> q = new LinkedList<>();
+        q.add("gedit");
+        q.add("|");
+        q.add("tee");
+        q.add("out.log");
         List<String> list = new ArrayList<>(q);
         String[] baz = list.toArray(new String[0]);
         return baz;
