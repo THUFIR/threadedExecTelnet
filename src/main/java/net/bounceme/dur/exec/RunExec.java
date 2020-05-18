@@ -6,7 +6,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
-import java.util.Arrays;
 import java.util.logging.Logger;
 
 public class RunExec {
@@ -17,9 +16,14 @@ public class RunExec {
     }
 
     public void start() throws IOException {
-        String[] commandList = CommandList.telnetLocalHost();
-        String commandString = Arrays.toString(commandList);
-        Process process = Runtime.getRuntime().exec(commandList);
+        RunCommands rc = new RunCommands(CommandEnum.LOCAL_TELNET);
+
+        
+        ProcessBuilder builder = new ProcessBuilder();
+        
+        builder.command(command);
+        
+        
         OutputStream stdin = process.getOutputStream();
         InputStream stderr = process.getErrorStream();
         InputStream stdout = process.getInputStream();
