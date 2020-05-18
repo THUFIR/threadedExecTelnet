@@ -13,7 +13,7 @@ public class CommandList {
     public CommandList() {
     }
 
-    public static String[] baz() {
+    public static String[] telnetLocalHost() {
         Queue<String> q = new LinkedList<>();
         q.add("telnet");
         q.add("localhost");
@@ -26,8 +26,7 @@ public class CommandList {
         return baz;
     }
 
-
-    public static String[] foo() {
+    public static String[] gedit() {
         Queue<String> q = new LinkedList<>();
         q.add("gedit");
         q.add("|");
@@ -38,16 +37,16 @@ public class CommandList {
         return baz;
     }
 
-    private void bar() {
-        String[] s = new String[6];
-        s[0] = "telnet";
-        s[1] = "rainmaker.wunderground.com";
-        s[2] = "3000";
-        s[3] = "|";
-        s[4] = "tee";
-        s[5] = "out.log";
-        for (String item : s) {
-            System.out.println(item);
-        }
+    public static String[] wunderground() {
+        Queue<String> q = new LinkedList<>();
+        q.add("telnet");
+        q.add("rainmaker.wunderground.com");
+        q.add("3000");
+        q.add("|");
+        q.add("tee");
+        q.add("out.log");
+        List<String> list = new ArrayList<>(q);
+        String[] baz = list.toArray(new String[0]);
+        return baz;
     }
 }

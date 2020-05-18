@@ -17,7 +17,7 @@ public class RunExec {
     }
 
     public void start() throws IOException {
-        String[] commandList = CommandList.baz();
+        String[] commandList = CommandList.telnetLocalHost();
         String commandString = Arrays.toString(commandList);
         Process process = Runtime.getRuntime().exec(commandList);
         OutputStream stdin = process.getOutputStream();
