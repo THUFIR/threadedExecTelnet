@@ -31,12 +31,15 @@ public class RunExec {
 //        List<String> resufdlts = readOutput(process.getInputStream());
         InputStream inputStream = process.getInputStream();
 
-       
-        
-        String outputtt = new BufferedReader(new InputStreamReader(inputStream)).lines().collect(Collectors.joining("\n"));
-
-       log.info(outputtt);
-        
+        String newLine = System.getProperty("line.separator");
+        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+        StringBuilder result = new StringBuilder();
+        boolean flag = false;
+        for (String line; (line = reader.readLine()) != null;) {
+            result.append(flag ? newLine : "").append(line);
+            flag = true;
+        }
+        log.info(result.toString());
 
         //        OutputStream stdin = processBuilder.getOutputStream();
         //      InputStream stderr = processBuilder.getErrorStream();
