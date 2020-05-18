@@ -22,8 +22,8 @@ public class CommandList {
         q.add("tee");
         q.add("out.log");
         List<String> list = new ArrayList<>(q);
-        String[] baz = list.toArray(new String[0]);
-        return baz;
+        String[] commands = list.toArray(new String[0]);
+        return commands;
     }
 
     public static String[] gedit() {
@@ -33,8 +33,8 @@ public class CommandList {
         q.add("tee");
         q.add("out.log");
         List<String> list = new ArrayList<>(q);
-        String[] baz = list.toArray(new String[0]);
-        return baz;
+        String[] commands = list.toArray(new String[0]);
+        return commands;
     }
 
     public static String[] wunderground() {
@@ -46,7 +46,7 @@ public class CommandList {
         q.add("tee");
         q.add("out.log");
         List<String> list = new ArrayList<>(q);
-        String[] baz = list.toArray(new String[0]);
-        return baz;
+        String[] commands = list.toArray(new String[0]);
+        return commands;
     }
 }
