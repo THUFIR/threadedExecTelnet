@@ -15,7 +15,7 @@ public class CommandList {
 
     public static String[] baz() {
         Queue<String> q = new LinkedList<>();
-        q.add("telnet localhost");
+        q.add("telnet");
         q.add("localhost");
         q.add("23");
         q.add("|");
