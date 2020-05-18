@@ -17,6 +17,9 @@ public class Commands {
             case GNOME_TERMINAL:
                 telnetLocalHost();
                 break;
+            case JAVA:
+                java();
+                break;
             case LS:
                 ls();
                 break;
@@ -35,6 +38,10 @@ public class Commands {
         return q;
     }
 
+    private void java() {
+        q.add("java");
+        q.add("-v");
+    }
     private void ls() {
         q.add("bash");
         q.add("-c");

@@ -18,7 +18,7 @@ public class RunExec {
     }
 
     public void start() throws IOException {
-        List<String> commandsList = new RunCommands(CommandEnum.LOCAL_TELNET).getCommands();
+        List<String> commandsList = new RunCommands(CommandEnum.LS).getCommands();
         String[] commandsArray = commandsList.toArray(new String[0]);
 
         //ProcessBuilder processBuilder = new ProcessBuilder();
@@ -26,7 +26,8 @@ public class RunExec {
         //    Runtime runtime = Runtime.getRuntime();
         //   Process process = runtime.exec(commandsArray);
         //processBuilder
-        Process process = new ProcessBuilder("java", "-version").start();
+        
+        Process process = new ProcessBuilder(commandsList).start();
 
 //        List<String> resufdlts = readOutput(process.getInputStream());
         InputStream inputStream = process.getInputStream();
