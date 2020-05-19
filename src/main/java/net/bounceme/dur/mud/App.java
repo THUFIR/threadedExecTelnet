@@ -13,8 +13,6 @@ public class App {
     public static void main(String[] args) throws IOException {
         properties.loadFromXML(App.class.getResourceAsStream("/java.xml"));
         CommandMaker cm = new CommandMaker(properties);
-        //   cm.commandQueue();
-//        new RunExec().exec(CommandEnum.LS);
         RunExec re = new RunExec(properties);
         re.runP();
     }
