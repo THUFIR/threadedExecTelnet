@@ -1,8 +1,6 @@
      	<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
     <comment>commands</comment>
-    <entry key="1">bash</entry>
-    <entry key="2">-c</entry>
-    <entry key="3">ls /home/thufir/</entry>
+    <entry key="1">java</entry>
+    <entry key="2">-version</entry>
 </properties>
-

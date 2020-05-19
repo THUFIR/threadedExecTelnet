@@ -10,9 +10,9 @@ public class App {
     private static Properties properties = new Properties();
 
     public static void main(String[] args) throws IOException {
-        properties.loadFromXML(App.class.getResourceAsStream("/foo.xml"));
+        properties.loadFromXML(App.class.getResourceAsStream("/ls.xml"));
         CommandMaker cm = new CommandMaker(properties);
-        cm.objectToString();
+        cm.commandStackQueue();
 //        new RunExec().exec(CommandEnum.LS);
     }
 }

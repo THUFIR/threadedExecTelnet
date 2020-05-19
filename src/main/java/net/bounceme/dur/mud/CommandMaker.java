@@ -4,6 +4,7 @@ import java.util.Enumeration;
 import java.util.LinkedList;
 import java.util.Properties;
 import java.util.Queue;
+import java.util.Stack;
 import java.util.logging.Logger;
 
 public class CommandMaker {
@@ -18,15 +19,22 @@ public class CommandMaker {
         this.properties = p;
     }
 
-    public void objectToString() {
-
-        Queue<String> q = new LinkedList<>();
+    public void commandStackQueue() {
+        Queue<String> queue = new LinkedList<>();
+        Stack<String> stack = new Stack<>();
         Enumeration enumeration = properties.propertyNames();
         while (enumeration.hasMoreElements()) {
             String key = enumeration.nextElement().toString();
-            q.add(properties.getProperty(key));
+            queue.add(properties.getProperty(key));
+            stack.add(properties.getProperty(key));
         }
-        log.info("queue\t\t\t" + q.toString());
-    }
 
+        stack.forEach((s) -> {
+            log.info(s);
+        });
+        
+        queue.forEach((s) -> {
+            log.info(s);
+        });
+    }
 }
