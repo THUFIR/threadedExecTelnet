@@ -23,6 +23,7 @@ public class Wrapperrr {
     }
 
     public void runProperties() throws IOException {
+        log.info(p.toString());
         CommandMaker cm = new CommandMaker(p);
         Queue<String> queue = cm.commandQueue();
         List<String> list = queue.stream().collect(Collectors.toCollection(ArrayList::new));
