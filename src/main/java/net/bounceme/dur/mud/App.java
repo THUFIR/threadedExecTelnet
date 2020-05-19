@@ -10,6 +10,16 @@ public class App {
     private final static Logger log = Logger.getLogger(App.class.getName());
 
     public static void main(String[] args) throws IOException {
-       new RunExec().exec(CommandEnum.JAVA);
+        Properties properties = null;
+        properties.loadFromXML(App.class.getResourceAsStream("/readPeopleText.xml"));
+        new RunExec().exec(CommandEnum.LS);
     }
 }
+
+
+/*
+    13	    private void run() throws BaseXException, IOException, Exception {
+    15	        Parser reader = new Parser(properties);
+    16	        List<Person> people = reader.iterate();
+
+ */

@@ -45,7 +45,8 @@ public class Commands {
     private void ls() {
         q.add("bash");
         q.add("-c");
-        q.add("ls /home/thufir/");
+        q.add("ls");
+        q.add("/home/thufir");
     }
 
     private void telnetLocalHost() {
