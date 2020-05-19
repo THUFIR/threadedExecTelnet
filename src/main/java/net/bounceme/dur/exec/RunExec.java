@@ -15,7 +15,7 @@ public class RunExec {
 
     private final static Logger log = Logger.getLogger(RunExec.class.getName());
     private Properties p = null;
-    private List list;
+    private List list = null;
 
     private RunExec() {
     }
