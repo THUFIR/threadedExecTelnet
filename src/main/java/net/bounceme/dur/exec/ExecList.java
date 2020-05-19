@@ -7,15 +7,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
-public class ListExec {
+public class ExecList {
 
-    private final static Logger log = Logger.getLogger(ListExec.class.getName());
-    private List<String> list = new ArrayList<>();
+    private final static Logger log = Logger.getLogger(ExecList.class.getName());
+    private List<String> list = null;
 
-    private ListExec() {
+    private ExecList() {
     }
 
-    ListExec(List<String> list) {
+    ExecList(List<String> list) {
         this.list = list;
     }
 

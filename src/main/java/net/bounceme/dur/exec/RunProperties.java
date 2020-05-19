@@ -12,8 +12,8 @@ import net.bounceme.dur.mud.PropertiesHandler;
 public class RunProperties {
 
     private final static Logger log = Logger.getLogger(RunProperties.class.getName());
-    private Properties properties = new Properties();
-    private ListExec ListExec = null;
+    private Properties properties = null;
+    private final ExecList execList = null;
 
     private RunProperties() {
     }
@@ -29,7 +29,7 @@ public class RunProperties {
         List<String> list = queue.stream().collect(Collectors.toCollection(ArrayList::new));
 
         log.fine(list.toString());
-        ListExec listExec = new ListExec(list);
+        ExecList listExec = new ExecList(list);
         listExec.execute();
     }
 }
