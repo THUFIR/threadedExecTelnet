@@ -17,9 +17,10 @@ public class CommandMaker {
         this.properties = p;
     }
 
-    private void objectToString() {
+    public void objectToString() {
+        log.info(properties.toString());
         Set<Object> objectSet = properties.keySet();
-        Set<String> stringSet = objectSet.stream().map(o -> convertToString(o)).collect(Collectors.toSet());
+        Set<String> stringSet = objectSet.stream().map(o -> o.toString()).collect(Collectors.toSet());
         log.info(stringSet.toString());
     }
 

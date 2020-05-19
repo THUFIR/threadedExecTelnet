@@ -12,6 +12,7 @@ public class App {
     public static void main(String[] args) throws IOException {
         properties.loadFromXML(App.class.getResourceAsStream("/foo.xml"));
         CommandMaker cm = new CommandMaker(properties);
+        cm.objectToString();
 //        new RunExec().exec(CommandEnum.LS);
     }
 }
