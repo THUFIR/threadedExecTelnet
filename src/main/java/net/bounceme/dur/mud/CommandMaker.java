@@ -24,20 +24,9 @@ public class CommandMaker {
         Enumeration enumeration = properties.propertyNames();
         while (enumeration.hasMoreElements()) {
             String key = enumeration.nextElement().toString();
-//            System.out.println(key + ": " + properties.getProperty(key));
             q.add(properties.getProperty(key));
         }
-
-        log.info("queue\t\t\t"+q.toString());
-        
-   //     log.info(properties.toString());
-    //    Set<Object> stringObjects = properties.keySet();
-
-    //    properties.keys();
-
-   //     Set<String> stringKeys = stringObjects.stream().map(o -> o.toString()).collect(Collectors.toSet());
-
-   //     log.info(stringKeys.toString());
+        log.info("queue\t\t\t" + q.toString());
     }
 
 }
