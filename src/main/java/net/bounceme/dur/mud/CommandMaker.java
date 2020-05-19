@@ -6,7 +6,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Properties;
 import java.util.Queue;
-import java.util.Stack;
 import java.util.logging.Logger;
 
 public class CommandMaker {
@@ -23,12 +22,10 @@ public class CommandMaker {
 
     public void commandStackQueue() {
         Queue<String> queue = new LinkedList<>();
-  //      Stack<String> stack = new Stack<>();
         Enumeration enumeration = properties.propertyNames();
         while (enumeration.hasMoreElements()) {
             String key = enumeration.nextElement().toString();
             queue.add(properties.getProperty(key));
-//            stack.add(properties.getProperty(key));
         }
 
         Collections.reverse((List) queue);
