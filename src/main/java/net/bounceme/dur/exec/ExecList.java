@@ -2,33 +2,43 @@ package net.bounceme.dur.exec;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.Reader;
 import java.util.List;
 import java.util.logging.Logger;
 
 public class ExecList {
 
     private final static Logger log = Logger.getLogger(ExecList.class.getName());
-    private List<String> list = null;
+    private List<String> listToExec = null;
 
     private ExecList() {
     }
 
     ExecList(List<String> list) {
-        this.list = list;
+        this.listToExec = list;
     }
 
     public void execute() throws IOException {
-        log.info(list.toString());
+        log.info(listToExec.toString());
 
-        String[] array = list.toArray(new String[0]);
-        Process process = Runtime.getRuntime().exec(array);
+        String[] arrayToExec = listToExec.toArray(new String[0]);
+        Process process = Runtime.getRuntime().exec(arrayToExec);
 
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(process.getErrorStream()));
+        OutputStream outputStream = process.getOutputStream();
+        InputStream inputStream = process.getInputStream();
+        Reader inputStreamReader = new InputStreamReader(inputStream);
+        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 
-        for (String line; (line = bufferedReader.readLine()) != null;) {
+        String line = null;
+        while ((line = bufferedReader.readLine()) != null) {
             System.out.println(line);
+            System.out.flush();
         }
+        bufferedReader.close();
+
     }
 
 }

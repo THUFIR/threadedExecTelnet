@@ -3,6 +3,6 @@
     <comment>commands</comment>
     <entry key="1">bash</entry>
     <entry key="2">-c</entry>
-    <entry key="3">ls /home/thufir/</entry>
+    <entry key="3">tree /home/thufir/NetbeansProjects/</entry>
 </properties>
 
