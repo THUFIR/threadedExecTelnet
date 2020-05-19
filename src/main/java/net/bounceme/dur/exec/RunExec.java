@@ -2,9 +2,7 @@ package net.bounceme.dur.exec;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
@@ -17,15 +15,20 @@ public class RunExec {
 
     private final static Logger log = Logger.getLogger(RunExec.class.getName());
     private Properties p = null;
+    private List list;
 
     private RunExec() {
     }
 
-    public RunExec(Properties p) {
+    private RunExec(Properties p) {
         this.p = p;
     }
 
-    public void runP() throws IOException {
+    RunExec(List<String> list) {
+        this.list = list;
+    }
+
+    public void runProperties() throws IOException {
         CommandMaker cm = new CommandMaker(p);
         Queue<String> queue = cm.commandQueue();
 
