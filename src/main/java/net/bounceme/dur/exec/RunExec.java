@@ -31,6 +31,8 @@ public class RunExec {
 
         List<String> list = queue.stream().collect(Collectors.toCollection(ArrayList::new));
 
+        log.info(list.toString());
+        
         String[] commandsArray = list.toArray(new String[0]);
         Process process = Runtime.getRuntime().exec(commandsArray);
 
