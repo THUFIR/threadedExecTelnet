@@ -5,34 +5,24 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
-import java.util.Queue;
 import java.util.logging.Logger;
-import java.util.stream.Collectors;
-import net.bounceme.dur.mud.CommandMaker;
 
-public class RunExec {
+public class ListExec {
 
-    private final static Logger log = Logger.getLogger(RunExec.class.getName());
-    private Properties p = null;
-    private List list = null;
+    private final static Logger log = Logger.getLogger(ListExec.class.getName());
+    private List<String> list = new ArrayList<>();
 
-    private RunExec() {
+    private ListExec() {
     }
 
-    private RunExec(Properties p) {
-        this.p = p;
-    }
-
-    RunExec(List<String> list) {
+    ListExec(List<String> list) {
         this.list = list;
     }
 
     public void execute() throws IOException {
-        CommandMaker cm = new CommandMaker(p);
-        Queue<String> queue = cm.commandQueue();
+//        Queue<String> queue = commandMaker.commandQueue();
 
-        List<String> list = queue.stream().collect(Collectors.toCollection(ArrayList::new));
+     //   list = queue.stream().collect(Collectors.toCollection(ArrayList::new));
 
         log.info(list.toString());
 

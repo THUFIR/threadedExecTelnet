@@ -8,15 +8,15 @@ import java.util.Properties;
 import java.util.Queue;
 import java.util.logging.Logger;
 
-public class CommandMaker {
+public class PropertiesHandler {
 
-    private final static Logger log = Logger.getLogger(CommandMaker.class.getName());
+    private final static Logger log = Logger.getLogger(PropertiesHandler.class.getName());
     private Properties properties = new Properties();
 
-    private CommandMaker() {
+    private PropertiesHandler() {
     }
 
-    public CommandMaker(Properties properties) {
+    public PropertiesHandler(Properties properties) {
         this.properties = properties;
         log.info(this.properties.toString());
     }

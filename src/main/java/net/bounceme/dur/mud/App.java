@@ -3,7 +3,7 @@ package net.bounceme.dur.mud;
 import java.io.IOException;
 import java.util.Properties;
 import java.util.logging.Logger;
-import net.bounceme.dur.exec.Wrapperrr;
+import net.bounceme.dur.exec.RunProperties;
 
 public class App {
 
@@ -13,7 +13,7 @@ public class App {
     public static void main(String[] args) throws IOException {
         log.info(properties.toString());
         properties.loadFromXML(App.class.getResourceAsStream("/ls_1.xml"));
-        new Wrapperrr(properties).runProperties();
+        new RunProperties(properties).handleProperties();
 
     }
 }
