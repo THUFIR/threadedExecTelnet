@@ -17,7 +17,7 @@ public class App {
 
         properties.loadFromXML(App.class.getResourceAsStream("/ls.xml"));
         log.info(properties.toString());
-        //    new net.bounceme.dur.exec.Wrapperrr(properties).runProperties();
+        new net.bounceme.dur.exec.Wrapperrr(properties).runProperties();
         log.info("hi");
 
     }
