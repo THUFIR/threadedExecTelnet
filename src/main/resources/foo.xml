@@ -2,4 +2,8 @@
      	<properties>
      	    <comment>commands</comment>
      	    <entry key="1">foo</entry>
+     	    <entry key="2">two</entry>
+     	    <entry key="3">three</entry>
+     	    <entry key="4">four</entry>
+     	    <entry key="5">five</entry>
     	    </properties>

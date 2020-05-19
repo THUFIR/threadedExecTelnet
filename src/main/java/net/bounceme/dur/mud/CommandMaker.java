@@ -1,9 +1,10 @@
 package net.bounceme.dur.mud;
 
+import java.util.Enumeration;
+import java.util.LinkedList;
 import java.util.Properties;
-import java.util.Set;
+import java.util.Queue;
 import java.util.logging.Logger;
-import java.util.stream.Collectors;
 
 public class CommandMaker {
 
@@ -18,10 +19,25 @@ public class CommandMaker {
     }
 
     public void objectToString() {
-        log.info(properties.toString());
-        Set<Object> objectSet = properties.keySet();
-        Set<String> stringSet = objectSet.stream().map(o -> o.toString()).collect(Collectors.toSet());
-        log.info(stringSet.toString());
+
+        Queue<String> q = new LinkedList<>();
+        Enumeration enumeration = properties.propertyNames();
+        while (enumeration.hasMoreElements()) {
+            String key = enumeration.nextElement().toString();
+//            System.out.println(key + ": " + properties.getProperty(key));
+            q.add(properties.getProperty(key));
+        }
+
+        log.info("queue\t\t\t"+q.toString());
+        
+   //     log.info(properties.toString());
+    //    Set<Object> stringObjects = properties.keySet();
+
+    //    properties.keys();
+
+   //     Set<String> stringKeys = stringObjects.stream().map(o -> o.toString()).collect(Collectors.toSet());
+
+   //     log.info(stringKeys.toString());
     }
 
 }
