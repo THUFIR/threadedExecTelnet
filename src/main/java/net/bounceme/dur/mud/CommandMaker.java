@@ -20,7 +20,7 @@ public class CommandMaker {
         this.properties = p;
     }
 
-    public void commandStackQueue() {
+    public Queue<String> commandQueue() {
         Queue<String> queue = new LinkedList<>();
         Enumeration enumeration = properties.propertyNames();
         while (enumeration.hasMoreElements()) {
@@ -31,7 +31,9 @@ public class CommandMaker {
         Collections.reverse((List) queue);
 
         queue.forEach((s) -> {
-            log.info(s);
+            log.fine(s);
         });
+        
+        return queue;
     }
 }
