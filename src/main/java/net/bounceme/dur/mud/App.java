@@ -3,6 +3,7 @@ package net.bounceme.dur.mud;
 import java.io.IOException;
 import java.util.Properties;
 import java.util.logging.Logger;
+import net.bounceme.dur.exec.RunExec;
 
 public class App {
 
@@ -12,8 +13,9 @@ public class App {
     public static void main(String[] args) throws IOException {
         properties.loadFromXML(App.class.getResourceAsStream("/ls.xml"));
         CommandMaker cm = new CommandMaker(properties);
-        cm.commandQueue();
+        //   cm.commandQueue();
 //        new RunExec().exec(CommandEnum.LS);
+        RunExec re = new RunExec(properties);
+        re.runP();
     }
 }
-
