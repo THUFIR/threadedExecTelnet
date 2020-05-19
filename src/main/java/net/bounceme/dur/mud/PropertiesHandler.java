@@ -18,11 +18,11 @@ public class PropertiesHandler {
 
     public PropertiesHandler(Properties properties) {
         this.properties = properties;
-        log.info(this.properties.toString());
+        log.fine(this.properties.toString());
     }
 
     public Queue<String> commandQueue() {
-        log.info(properties.toString());
+        log.fine(properties.toString());
         Enumeration enumeration = properties.propertyNames();
         Queue<String> queue = new LinkedList<>();
         while (enumeration.hasMoreElements()) {

@@ -23,7 +23,7 @@ public class RunProperties {
     }
 
     public void handleProperties() throws IOException {
-        log.info(properties.toString());
+        log.fine(properties.toString());
         PropertiesHandler propertiesHandler = new PropertiesHandler(properties);
         Queue<String> queue = propertiesHandler.commandQueue();
         List<String> list = queue.stream().collect(Collectors.toCollection(ArrayList::new));

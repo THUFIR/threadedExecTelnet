@@ -20,10 +20,6 @@ public class ListExec {
     }
 
     public void execute() throws IOException {
-//        Queue<String> queue = commandMaker.commandQueue();
-
-     //   list = queue.stream().collect(Collectors.toCollection(ArrayList::new));
-
         log.info(list.toString());
 
         String[] commandsArray = list.toArray(new String[0]);

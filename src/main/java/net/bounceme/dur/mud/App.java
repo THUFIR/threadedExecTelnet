@@ -11,8 +11,8 @@ public class App {
     private static Properties properties = new Properties();
 
     public static void main(String[] args) throws IOException {
-        log.info(properties.toString());
-        properties.loadFromXML(App.class.getResourceAsStream("/ls_1.xml"));
+        log.fine(properties.toString());
+        properties.loadFromXML(App.class.getResourceAsStream("/java.xml"));
         new RunProperties(properties).handleProperties();
 
     }
