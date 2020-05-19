@@ -1,7 +1,9 @@
 package net.bounceme.dur.mud;
 
+import java.util.Collections;
 import java.util.Enumeration;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Properties;
 import java.util.Queue;
 import java.util.Stack;
@@ -21,18 +23,16 @@ public class CommandMaker {
 
     public void commandStackQueue() {
         Queue<String> queue = new LinkedList<>();
-        Stack<String> stack = new Stack<>();
+  //      Stack<String> stack = new Stack<>();
         Enumeration enumeration = properties.propertyNames();
         while (enumeration.hasMoreElements()) {
             String key = enumeration.nextElement().toString();
             queue.add(properties.getProperty(key));
-            stack.add(properties.getProperty(key));
+//            stack.add(properties.getProperty(key));
         }
 
-        stack.forEach((s) -> {
-            log.info(s);
-        });
-        
+        Collections.reverse((List) queue);
+
         queue.forEach((s) -> {
             log.info(s);
         });
