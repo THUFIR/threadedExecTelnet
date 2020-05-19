@@ -16,13 +16,15 @@ public class CommandMaker {
     private CommandMaker() {
     }
 
-    public CommandMaker(Properties p) {
-        this.properties = p;
+    public CommandMaker(Properties properties) {
+        this.properties = properties;
+        log.info(this.properties.toString());
     }
 
     public Queue<String> commandQueue() {
-        Queue<String> queue = new LinkedList<>();
+        log.info(properties.toString());
         Enumeration enumeration = properties.propertyNames();
+        Queue<String> queue = new LinkedList<>();
         while (enumeration.hasMoreElements()) {
             String key = enumeration.nextElement().toString();
             queue.add(properties.getProperty(key));
@@ -33,7 +35,7 @@ public class CommandMaker {
         queue.forEach((s) -> {
             log.fine(s);
         });
-        
+
         return queue;
     }
 }

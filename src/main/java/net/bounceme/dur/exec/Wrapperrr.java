@@ -12,23 +12,24 @@ import net.bounceme.dur.mud.CommandMaker;
 public class Wrapperrr {
 
     private final static Logger log = Logger.getLogger(Wrapperrr.class.getName());
-    private Properties p = null;
+    private Properties properties = new Properties();
     private RunExec runExec = null;
 
     private Wrapperrr() {
     }
 
     public Wrapperrr(Properties p) {
-        this.p = p;
+        this.properties = p;
     }
 
     public void runProperties() throws IOException {
-        log.info(p.toString());
-        CommandMaker cm = new CommandMaker(p);
+        log.info(properties.toString());
+        CommandMaker cm = new CommandMaker(properties);
         Queue<String> queue = cm.commandQueue();
         List<String> list = queue.stream().collect(Collectors.toCollection(ArrayList::new));
 
         log.fine(list.toString());
         runExec = new RunExec(list);
+        runExec.execute();
     }
 }

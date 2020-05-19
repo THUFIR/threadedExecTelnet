@@ -28,7 +28,7 @@ public class RunExec {
         this.list = list;
     }
 
-    public void runProperties() throws IOException {
+    public void execute() throws IOException {
         CommandMaker cm = new CommandMaker(p);
         Queue<String> queue = cm.commandQueue();
 
