@@ -27,17 +27,15 @@ public class ExecList {
         String[] arrayToExec = listToExec.toArray(new String[0]);
         Process process = Runtime.getRuntime().exec(arrayToExec);
 
-        OutputStream outputStream = process.getOutputStream();
         InputStream inputStream = process.getInputStream();
         Reader inputStreamReader = new InputStreamReader(inputStream);
-        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-
-        String line = null;
-        while ((line = bufferedReader.readLine()) != null) {
-            System.out.println(line);
-            System.out.flush();
+        try (BufferedReader bufferedReader = new BufferedReader(inputStreamReader)) {
+            String line = null;
+            while ((line = bufferedReader.readLine()) != null) {
+                System.out.println(line);
+                System.out.flush();
+            }
         }
-        bufferedReader.close();
 
     }
 
