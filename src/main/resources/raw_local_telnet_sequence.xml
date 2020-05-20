@@ -1,0 +1,6 @@
+     	<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+     	<properties>
+     	    <comment>commands</comment>
+     	    <entry key="1">telnet</entry>
+     	    <entry key="2">localhost</entry>
+    	    </properties>
