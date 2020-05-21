@@ -9,7 +9,7 @@ public class App {
 
     private final static Logger log = Logger.getLogger(App.class.getName());
     private static Properties properties = new Properties();
-    private static final String filePrefix = "raw_local_telnet";
+    private static final String filePrefix = "fail_raw_java_sequence";
 
     public static void main(String[] args) throws IOException {
         String propertiesFile = "/" + filePrefix + ".xml";
